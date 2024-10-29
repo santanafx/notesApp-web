@@ -4,7 +4,7 @@ export const themeOptions: ThemeOptions = {
   palette: {
     mode: "dark",
     primary: {
-      main: "#084c61",
+      main: "#56a3a6",
       contrastText: "rgba(255,255,255,0.87)",
     },
     secondary: {
@@ -12,7 +12,7 @@ export const themeOptions: ThemeOptions = {
       contrastText: "rgba(255,255,255,0.87)",
     },
     error: {
-      main: "#ff0000",
+      main: "#dc0909",
     },
     warning: {
       main: "#ffdc26",
@@ -23,9 +23,12 @@ export const themeOptions: ThemeOptions = {
     success: {
       main: "#00ff0b",
     },
-    divider: "#56a3a6",
+    divider: "#084c61",
     background: {
       default: "#2d2d2d",
+    },
+    text: {
+      primary: "#ffffff",
     },
   },
   typography: {
