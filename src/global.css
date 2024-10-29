@@ -3,3 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background-color: #2d2d2d;
+}
+
+:root {
+  --backGround: #1c1c1c;
+}
