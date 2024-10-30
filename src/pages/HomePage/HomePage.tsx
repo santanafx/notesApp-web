@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import Draggable from "react-draggable";
 import Add from "../../components/molecules/Add/Add";
 import Note from "../../components/molecules/Note/Note";
@@ -26,7 +26,11 @@ export const HomePage = () => {
     setNoteId((prev) => prev + 1);
   };
 
-  const handleAddContent = (note: NoteType, index: number, e: any) => {
+  const handleAddContent = (
+    note: NoteType,
+    index: number,
+    e: ChangeEvent<HTMLTextAreaElement>
+  ) => {
     const newTempNotes = [...tempNotes];
     newTempNotes[index] = { ...note, content: e.target.value };
     setTempNotes(newTempNotes);
