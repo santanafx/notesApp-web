@@ -1,0 +1,29 @@
+.templateContainer {
+  margin: 0 auto;
+  width: 30%;
+  height: 500px;
+  border: 1px solid #56a3a6;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--backGround);
+  box-shadow: 0 0 10px #000000;
+}
+
+.inputsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.buttonsContainer {
+  display: flex;
+  gap: 20px;
+}
