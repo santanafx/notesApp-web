@@ -45,7 +45,7 @@ export const CreateAccountPage = () => {
         <TextField
           id="outlined-adornment-password"
           type={showPassword ? "text" : "password"}
-          label="Password"
+          label="Password *"
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
