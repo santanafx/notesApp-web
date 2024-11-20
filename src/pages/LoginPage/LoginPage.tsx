@@ -7,14 +7,17 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import * as z from "zod";
 import { LoginPageTemplate } from "../../components/templates/LoginPageTemplate/LoginPageTemplate";
+import { useGlobalContext } from "../../context/GlobalContext";
+import { login } from "../../service/login";
 
 const loginFormSchema = z.object({
-  login: z
+  email: z
     .string()
     .min(1, { message: "Login is required" })
     .refine((val) => val.includes("@"), {
@@ -33,10 +36,23 @@ export const LoginPage = () => {
   const { handleSubmit, control } = useForm<loginFormSchemaType>({
     resolver: zodResolver(loginFormSchema),
   });
+  const { setToken, setUserId } = useGlobalContext();
+  const loginMutation = useMutation({
+    mutationFn: ({ email, password }: { email: string; password: string }) =>
+      login(email, password),
+    onSuccess: (data) => {
+      console.log(data?.token);
+      setToken(data?.token);
+      setUserId(data?.user.id);
+      navigate(`/home/${data?.user.id}}`);
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+  });
 
   const handleLoginForm = (data) => {
-    console.log(data);
-    // navigate("/");
+    loginMutation.mutate(data);
   };
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -62,7 +78,7 @@ export const LoginPage = () => {
       }
       emailInput={
         <Controller
-          name="login"
+          name="email"
           control={control}
           render={({ field, fieldState: { error } }) => (
             <TextField
