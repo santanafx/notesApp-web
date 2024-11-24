@@ -6,7 +6,7 @@ export const getNotes = async (userId: string, token: string) => {
   };
 
   try {
-    const response = await fetch(`http://localhost:3000/home/${userId}}`, {
+    const response = await fetch(`http://localhost:3000/home/${userId}`, {
       method: "GET",
       headers: headersList,
     });
