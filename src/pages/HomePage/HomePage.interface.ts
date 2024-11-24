@@ -1,4 +1,4 @@
 export interface NoteType {
-  id: number;
-  content: string | null;
+  id: string;
+  text: string | null;
 }
